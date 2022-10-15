@@ -8,11 +8,11 @@ import profile from '../../../database/profile.json';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private router: Router) { }
-
   usernameVal = '';
   passwordVal = '';
+  errorMsg = '';
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,16 +26,20 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    if (!this.usernameVal || !this.passwordVal) {
-      throw new Error('Username or Password is Empty');
+    if (!this.usernameVal && !this.passwordVal) {
+      this.errorMsg = 'Username and password are required';
+    } else if (!this.usernameVal) {
+      this.errorMsg = 'Username is required';
+    } else if (!this.passwordVal) {
+      this.errorMsg = 'Password is required';
     }
 
     const userExists = profile.find(obj => obj.username === this.usernameVal && obj.password === this.passwordVal);
 
     if (userExists) {
       this.router.navigate([`capabilities`]);
-    } else {
-      console.log('MALI');
+    } else if (this.usernameVal && this.passwordVal) {
+      this.errorMsg = 'Username or password is incorrect'
     }
   }
 
