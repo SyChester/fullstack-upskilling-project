@@ -11,6 +11,9 @@
         <mat-label>Enter Password</mat-label>
         <input matInput #passwordInput type="password" (keyup)="passwordKey(passwordInput.value)" placeholder="Password">
       </mat-form-field>
+      <div class="alert-danger" *ngIf="errorMsg">
+        {{ errorMsg }}
+      </div>
       <button mat-raised-button type="submit" (click)="onLogin()">Login</button>
     </form>
   </mat-card>
