@@ -10,3 +10,7 @@
   background-color: #00984f;
   color: white;
  }
+
+ .alert-danger {
+  color: red;
+ }
