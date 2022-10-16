@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     const userExists = profile.find(obj => obj.username === this.usernameVal && obj.password === this.passwordVal);
 
     if (userExists) {
-      this.router.navigate([`capabilities`]);
+      this.router.navigate([`capabilities`], { state: { firstName: userExists.firstName, lastName: userExists.lastName, resourceId: userExists.resourceId } });
     } else if (this.usernameVal && this.passwordVal) {
       this.errorMsg = 'Username or password is incorrect'
     }
