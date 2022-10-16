@@ -1,6 +1,16 @@
 [
   {
+    "id": "00",
+    "resourceId": "3642eb0e-48b9-47f0-ab53-29208511a0bd",
+    "firstName": "Admin",
+    "lastName": "istrator",
+    "username": "admin",
+    "email": "admin@email.com",
+    "password": "admin"
+  },
+  {
     "id": "01",
+    "resourceId": "f246deea-1bfd-44c6-874c-b8e03e9f38f1",
     "firstName": "John",
     "lastName": "Doe",
     "username": "JohnDoe",
@@ -9,6 +19,7 @@
   },
   {
     "id": "02",
+    "resourceId": "f2b49b15-044b-448b-bde1-6eb170c066f4",
     "firstName": "Jane",
     "lastName": "Doe",
     "username": "JaneDoe",
