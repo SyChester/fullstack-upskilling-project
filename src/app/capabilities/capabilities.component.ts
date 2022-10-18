@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { CapabilitiesService, UserDetails } from './capabilities.service';
 export interface TableElement {
   name: string;
   workday: string;
@@ -42,11 +42,12 @@ export class CapabilitiesComponent implements OnInit {
   search = '';
   displayedColumns = ['name', 'workday', 'title', 'project', 'date'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+  userDetails: UserDetails;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: CapabilitiesService) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation!.extras.state as {
       firstName: string,
@@ -60,7 +61,7 @@ export class CapabilitiesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //balak ko ilagay dito deets ni user. Para pagclick nung expandable, lalabas sya agad
+    this.userDetails = this.service.getUserDetails(this.resourceId);
   }
 
   ngAfterViewInit() {
