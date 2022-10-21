@@ -1,15 +1,7 @@
 import { Injectable } from '@angular/core';
 import profile from '../../../database/profile.json';
 import resource from '../../../database/resource.json';
-
-export interface UserDetails {
-  firstName: string;
-  lastName: string;
-  workday: string;
-  title: string;
-  project: string;
-  date_hired: string;
-}
+import { TableElement, UserDetails } from './dto/capabilities.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +10,12 @@ export class CapabilitiesService {
 
   constructor() { }
 
+  getProfile(id: string) {
+    return profile.find(obj => obj.resourceId === id);
+  }
+
   getUserDetails(id: string): UserDetails {
-    const prof = profile.find(obj => obj.resourceId = id);
+    const prof = this.getProfile(id);
     const user = resource.find(obj => obj.id === id);
 
     return {
@@ -31,35 +27,22 @@ export class CapabilitiesService {
       date_hired: user!.date_hired
     }
   }
-}
 
-/**
- * import { Injectable } from '@angular/core';
-import {
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot
-} from '@angular/router';
-import { CapabilitiesService } from './capabilities.service';
+  getResources(resourceId: string): TableElement[] {
+    const resources = resource.filter(obj => obj.id !== resourceId);
 
-export interface UserDetails {
-  firstName: string;
-  lastName: string;
-  workday: string;
-  title: string;
-  project: string;
-  date_hired: string;
-}
+    const ELEMENT_DATA: TableElement[] = resources.map(resource => {
+      const prof = this.getProfile(resource.id);
 
-@Injectable({
-  providedIn: 'root'
-})
-export class CapabilitiesResolver implements Resolve<UserDetails> {
+      return {
+        name: prof!.firstName + prof!.lastName,
+        workday: resource.workdayId,
+        title: resource.title,
+        project: resource.project,
+        date: resource.date_hired
+      }
+    })
 
-  constructor(private capabilities: CapabilitiesService) { }
-
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.capabilities.getUserDetails('3642eb0e-48b9-47f0-ab53-29208511a0bd');
+    return ELEMENT_DATA;
   }
 }
- */
