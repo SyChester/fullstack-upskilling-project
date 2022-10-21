@@ -3,32 +3,8 @@ import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CapabilitiesService, UserDetails } from './capabilities.service';
-export interface TableElement {
-  name: string;
-  workday: string;
-  title: string;
-  project: string;
-  date: string;
-}
-
-const ELEMENT_DATA: TableElement[] = [
-  {name: 'Jeniffer', workday: '234545', title: 'Assoc', project: 'GN', date: '2022-12-12'},
-  {name: 'Alisson', workday: '934234', title: 'Intermediate', project: 'TripX', date: '2022-10-02'},
-  {name: 'Bob', workday: '935235', title: 'Senior', project: 'Bank', date: '2021-12-11'},
-  {name: 'Jeniffer', workday: '234545', title: 'Assoc', project: 'GN', date: '2022-12-12'},
-  {name: 'Alisson', workday: '934234', title: 'Intermediate', project: 'TripX', date: '2022-10-02'},
-  {name: 'Bob', workday: '935235', title: 'Senior', project: 'Bank', date: '2021-12-11'},
-  {name: 'Jeniffer', workday: '234545', title: 'Assoc', project: 'GN', date: '2022-12-12'},
-  {name: 'Alisson', workday: '934234', title: 'Intermediate', project: 'TripX', date: '2022-10-02'},
-  {name: 'Bob', workday: '935235', title: 'Senior', project: 'Bank', date: '2021-12-11'},
-  {name: 'Jeniffer', workday: '234545', title: 'Assoc', project: 'GN', date: '2022-12-12'},
-  {name: 'Alisson', workday: '934234', title: 'Intermediate', project: 'TripX', date: '2022-10-02'},
-  {name: 'Bob', workday: '935235', title: 'Senior', project: 'Bank', date: '2021-12-11'},
-  {name: 'Jeniffer', workday: '234545', title: 'Assoc', project: 'GN', date: '2022-12-12'},
-  {name: 'Alisson', workday: '934234', title: 'Intermediate', project: 'TripX', date: '2022-10-02'},
-  {name: 'Bob', workday: '935235', title: 'Senior', project: 'Bank', date: '2021-12-11'}
-];
+import { CapabilitiesService } from './capabilities.service';
+import { TableElement, UserDetails } from './dto/capabilities.dto';
 
 @Component({
   selector: 'app-capabilities',
@@ -41,7 +17,7 @@ export class CapabilitiesComponent implements OnInit {
   resourceId = '';
   search = '';
   displayedColumns = ['name', 'workday', 'title', 'project', 'date'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<TableElement>;
   userDetails: UserDetails;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -62,6 +38,7 @@ export class CapabilitiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetails = this.service.getUserDetails(this.resourceId);
+    this.dataSource = new MatTableDataSource(this.service.getResources(this.resourceId));
   }
 
   ngAfterViewInit() {
@@ -72,5 +49,4 @@ export class CapabilitiesComponent implements OnInit {
   filter(value: string) {
     this.dataSource.filter = value.trim().toLowerCase();
   }
-
 }
