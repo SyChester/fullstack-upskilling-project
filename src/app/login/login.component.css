@@ -2,13 +2,13 @@
   padding: 0px;
  }
 
- .login-form {
-  padding: 20px;
- }
-
  .toolbar {
   background-color: #00984f;
   color: white;
+ }
+
+ .login-form {
+  padding: 20px;
  }
 
  .alert-danger {
