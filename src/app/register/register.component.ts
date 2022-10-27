@@ -4,6 +4,7 @@ import profile from '../../../database/profile.json';
 import resource from '../../../database/resource.json';
 import * as uuid from 'uuid';
 import { isExistingUser, isPasswordInvalid } from 'src/common/validation';
+import { Project } from 'src/common/models/projects.model';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,13 @@ import { isExistingUser, isPasswordInvalid } from 'src/common/validation';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  projects: Project[] = [
+    { id: 1, name: 'Engineering Services' },
+    { id: 2, name: 'Bank' },
+    { id: 3, name: 'Insurance (TripX)' },
+    { id: 4, name: 'GB' },
+    { id: 5, name: 'ePOS' }
+  ];
   firstNameVal = '';
   lastNameVal = '';
   usernameVal = '';
