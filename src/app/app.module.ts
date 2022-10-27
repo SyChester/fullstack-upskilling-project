@@ -18,6 +18,9 @@ import { MatTableModule } from '@angular/material/table'
 import {  MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { RegisterComponent } from './register/register.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,9 @@ import { RegisterComponent } from './register/register.component';
     MatExpansionModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
