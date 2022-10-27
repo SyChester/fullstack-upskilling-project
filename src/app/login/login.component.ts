@@ -26,14 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    if (!this.usernameVal && !this.passwordVal) {
-      this.errorMsg = 'Username and password are required';
-    } else if (!this.usernameVal) {
-      this.errorMsg = 'Username is required';
-    } else if (!this.passwordVal) {
-      this.errorMsg = 'Password is required';
-    }
-
     const userExists = profile.find(obj => obj.username === this.usernameVal && obj.password === this.passwordVal);
 
     if (userExists) {

@@ -2,15 +2,51 @@
   <mat-card fxFlex="25">
     <mat-toolbar class="toolbar" fxLayoutAlign="center center">Capability Tracker</mat-toolbar>
     <form class="login-form" fxLayoutAlign="stretch" fxLayout="column">
-      <mat-form-field appearance="fill">
-        <mat-label>Enter Username</mat-label>
-        <input matInput #usernameInput (keyup)="usernameKey(usernameInput.value)" placeholder="Username">
-      </mat-form-field>
+      <div class="form-group left-field" [class.has-error]="usernameValControl.invalid && usernameValControl.touched" fxLayout="column">
+        <mat-form-field appearance="fill" fxFlex="100">
+          <mat-label>Enter Username</mat-label>
+          <input
+            required
+            type="text"
+            id="usernameVal"
+            name="usernameVal"
+            class="form-control"
+            matInput
+            #usernameInput
+            (keyup)="usernameKey(usernameInput.value)"
+            placeholder="Username"
+            [(ngModel)]="usernameVal"
+            #usernameValControl="ngModel"
+          >
+        </mat-form-field>
+        <span class="help-block alert-danger" *ngIf="usernameValControl.invalid && usernameValControl.touched">
+          Username is required
+        </span>
+      </div>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Enter Password</mat-label>
-        <input matInput #passwordInput type="password" (keyup)="passwordKey(passwordInput.value)" placeholder="Password">
-      </mat-form-field>
+      <div class="form-group left-field" [class.has-error]="passwordValControl.invalid && passwordValControl.touched" fxLayout="column">
+        <mat-form-field appearance="fill" fxFlex="100">
+          <mat-label>Enter Password</mat-label>
+          <input
+            required
+            type="text"
+            id="passwordVal"
+            name="passwordVal"
+            class="form-control"
+            matInput
+            #passwordInput
+            type="password"
+            (keyup)="passwordKey(passwordInput.value)"
+            placeholder="Password"
+            [(ngModel)]="passwordVal"
+            #passwordValControl="ngModel"
+          >
+        </mat-form-field>
+        <span class="help-block alert-danger" *ngIf="passwordValControl.invalid && passwordValControl.touched">
+          Password is required
+        </span>
+      </div>
+
       <div class="alert-danger" *ngIf="errorMsg">
         {{ errorMsg }}
       </div>
