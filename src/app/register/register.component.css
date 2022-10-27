@@ -1,0 +1,38 @@
+.main-div mat-card {
+  padding: 0px;
+ }
+
+ .toolbar {
+  background-color: #00984f;
+  color: white;
+ }
+
+  .left-field {
+    margin-right: 19px;
+  }
+
+  .right-field {
+    margin-left: 19px;
+  }
+
+ @media screen and (max-width: 1792px) {
+  .left-field {
+    margin-right: 2px;
+   }
+
+  .right-field {
+    margin-left: 2px;
+  }
+ }
+
+ .register-form {
+  padding: 20px;
+ }
+
+ .alert-danger {
+  color: red;
+ }
+
+ button {
+  margin: 5px;
+ }
