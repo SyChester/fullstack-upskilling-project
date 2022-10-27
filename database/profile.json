@@ -25,5 +25,113 @@
     "username": "JaneDoe",
     "email": "janedoe@email.com",
     "password": "janedoe123"
+  },
+  {
+    "id": "03",
+    "resourceId": "a7636a97-babb-4c84-be9d-f6ae79b3309f",
+    "firstName": "George",
+    "lastName": "Pino",
+    "username": "GeorgePino",
+    "email": "georgepino@email.com",
+    "password": "georgepino123"
+  },
+  {
+    "id": "04",
+    "resourceId": "af00ed51-9884-4882-a1e6-a67a082b6b4c",
+    "firstName": "Michael",
+    "lastName": "See",
+    "username": "MichaelSee",
+    "email": "michaelsee@email.com",
+    "password": "michaelsee123"
+  },
+  {
+    "id": "05",
+    "resourceId": "e527b52c-8ea5-4f83-be25-5f82556e2aa5",
+    "firstName": "Yina",
+    "lastName": "Lee",
+    "username": "YinaLee",
+    "email": "yinalee@email.com",
+    "password": "yinalee123"
+  },
+  {
+    "id": "06",
+    "resourceId": "5ef793c5-0a7d-4d95-8c4e-e604f7dfaf18",
+    "firstName": "Michelle",
+    "lastName": "Salamin",
+    "username": "MichelleSalamin",
+    "email": "michellesalamin@email.com",
+    "password": "michellesalamin123"
+  },
+  {
+    "id": "07",
+    "resourceId": "1a5ae7ad-bb5b-4321-8259-7e9503a3f4ee",
+    "firstName": "Lavy",
+    "lastName": "Kokonut",
+    "username": "LavyKokonut",
+    "email": "lavykokonut@email.com",
+    "password": "lavykokonut123"
+  },
+  {
+    "id": "08",
+    "resourceId": "204145ff-0868-4123-8515-6d5aa20fa6a5",
+    "firstName": "Sandy",
+    "lastName": "Guzman",
+    "username": "SandyGuzman",
+    "email": "sandyguzman@email.com",
+    "password": "sandyguzman123"
+  },
+  {
+    "id": "09",
+    "resourceId": "1f112eca-769e-4aa5-b1d0-a25b5c4c6465",
+    "firstName": "Richard",
+    "lastName": "Ty",
+    "username": "RichardTy",
+    "email": "richardty@email.com",
+    "password": "richardty123"
+  },
+  {
+    "id": "10",
+    "resourceId": "d5bc758a-18dc-4096-9bee-38b80e6f8bb4",
+    "firstName": "Hanz",
+    "lastName": "Brillantes",
+    "username": "HanzBrillantes",
+    "email": "hanzbrillantes@email.com",
+    "password": "hanzbrillantes123"
+  },
+  {
+    "id": "11",
+    "resourceId": "b4daef42-ce69-402b-9c81-9463fda696cd",
+    "firstName": "Yuna",
+    "lastName": "Greg",
+    "username": "YunaGreg",
+    "email": "yunagreg@email.com",
+    "password": "yunagreg123"
+  },
+  {
+    "id": "12",
+    "resourceId": "609a0aa2-44f0-41bc-acb5-34059a9dbf4b",
+    "firstName": "Jake",
+    "lastName": "Mark",
+    "username": "JakeMark",
+    "email": "jakemark@email.com",
+    "password": "jakemark123"
+  },
+  {
+    "id": "13",
+    "resourceId": "51fe7824-7c9a-4438-934e-724c9e6091d1",
+    "firstName": "Andre",
+    "lastName": "Patola",
+    "username": "AndrePatola",
+    "email": "andrepatola@email.com",
+    "password": "andrepatola123"
+  },
+  {
+    "id": "14",
+    "resourceId": "7be360f7-816c-4a2a-87d2-020c3507759c",
+    "firstName": "Robbi",
+    "lastName": "Sison",
+    "username": "RobbiSison",
+    "email": "robbisison@email.com",
+    "password": "robbisison123"
   }
 ]
