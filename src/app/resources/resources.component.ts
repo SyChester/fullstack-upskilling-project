@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ResourcesService } from './resources.service';
-import { TableElement, UserDetails } from './dto/resources.dto';
+import { TableElement, UserDetails } from '../../common/models/resources.model';
 
 @Component({
   selector: 'app-resources',

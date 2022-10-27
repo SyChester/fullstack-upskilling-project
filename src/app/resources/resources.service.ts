@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import profile from '../../../database/profile.json';
 import resource from '../../../database/resource.json';
-import { TableElement, UserDetails } from './dto/resources.dto';
+import { TableElement, UserDetails } from '../../common/models/resources.model';
 
 @Injectable({
   providedIn: 'root'
