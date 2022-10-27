@@ -74,6 +74,7 @@
             <mat-label>Email</mat-label>
             <input
               required
+              email
               type="text"
               id="emailVal"
               name="emailVal"
@@ -85,8 +86,11 @@
               #emailValControl="ngModel"
             >
           </mat-form-field>
-          <span class="help-block alert-danger" *ngIf="emailValControl.invalid && emailValControl.touched">
+          <span class="help-block alert-danger" *ngIf="emailValControl.errors?.required && emailValControl.touched">
             Email is required
+          </span>
+          <span class="help-block alert-danger" *ngIf="emailValControl.errors?.email && emailValControl.touched">
+            Email is invalid
           </span>
         </div>
       </div>
@@ -222,6 +226,9 @@
         </span>
       </div>
 
+      <div class="alert-danger" *ngIf="errorMsg">
+        {{ errorMsg }}
+      </div>
       <button mat-raised-button type="submit" (click)="onSubmit()">Submit</button>
     </form>
   </mat-card>
