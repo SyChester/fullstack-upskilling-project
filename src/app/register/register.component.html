@@ -142,7 +142,7 @@
       </div>
 
       <label>Work Info</label>
-      <div class="form-group" [class.has-error]="workdayValControl.invalid && workdayValControl.touched">
+      <div class="form-group" [class.has-error]="workdayValControl.invalid && workdayValControl.touched" fxLayout="column">
         <mat-form-field appearance="fill" fxFlex="100">
           <mat-label>Workday</mat-label>
           <input
@@ -163,7 +163,7 @@
         </span>
       </div>
 
-      <div class="form-group" [class.has-error]="titleValControl.invalid && titleValControl.touched" >
+      <div class="form-group" [class.has-error]="titleValControl.invalid && titleValControl.touched" fxLayout="column">
         <mat-form-field appearance="fill" fxFlex="100">
           <mat-label>Job Title</mat-label>
           <input
@@ -184,12 +184,12 @@
         </span>
       </div>
 
-      <div class="form-group" [class.has-error]="dateHiredValControl.invalid && dateHiredValControl.touched" >
+      <div class="form-group" [class.has-error]="dateHiredValControl.invalid && dateHiredValControl.touched" fxLayout="column">
         <mat-form-field appearance="fill" fxFlex="100">
           <mat-label>Date Hired</mat-label>
           <input
             required
-            type="text"
+            type="date"
             id="dateHiredVal"
             name="dateHiredVal"
             class="form-control"
@@ -205,21 +205,21 @@
         </span>
       </div>
 
-      <div class="form-group" [class.has-error]="projectValControl.invalid && projectValControl.touched" >
+      <div class="form-group" [class.has-error]="projectValControl.invalid && projectValControl.touched" fxLayout="column">
         <mat-form-field appearance="fill" fxFlex="100">
           <mat-label>Project</mat-label>
-          <input
+          <mat-select
             required
-            type="text"
             id="projectVal"
             name="projectVal"
-            class="form-control"
-            matInput
-            #projectInput
-            (keyup)="projectKey(projectInput.value)"
             [(ngModel)]="projectVal"
+            class="form-control"
             #projectValControl="ngModel"
           >
+            <mat-option *ngFor="let project of projects" [value]="project.id">
+              {{project.name}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <span class="help-block alert-danger" *ngIf="projectValControl.invalid && projectValControl.touched">
           Project is required
