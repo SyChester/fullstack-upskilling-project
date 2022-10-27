@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import profile from '../../../database/profile.json';
 import resource from '../../../database/resource.json';
 import * as uuid from 'uuid';
+import { isExistingUser, isPasswordInvalid } from 'src/common/validation';
 
 @Component({
   selector: 'app-register',
@@ -69,26 +70,33 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    const UUID = uuid.v4();
-    profile.push({
-      "id": "03",
-      "resourceId": UUID,
-      "firstName": this.firstNameVal,
-      "lastName": this.lastNameVal,
-      "username": this.usernameVal,
-      "email": this.emailVal,
-      "password": this.passwordVal
-    });
+    if (isExistingUser(this.usernameVal)) {
+      this.errorMsg = 'Username already exists';
+    } else if (isPasswordInvalid(this.passwordVal, this.confirmPassVal)) {
+      this.errorMsg = 'Password does not match';
+    } else {
+      const UUID = uuid.v4();
 
-    resource.push({
-      "id": UUID,
-      "title": this.titleVal,
-      "date_hired": this.dateHiredVal,
-      "workdayId": this.workdayVal,
-      "project": this.projectVal
-    });
+      profile.push({
+        "id": `0${profile.length}`,
+        "resourceId": UUID,
+        "firstName": this.firstNameVal,
+        "lastName": this.lastNameVal,
+        "username": this.usernameVal,
+        "email": this.emailVal,
+        "password": this.passwordVal
+      });
 
-    this.router.navigate(['']);
+      resource.push({
+        "id": UUID,
+        "title": this.titleVal,
+        "date_hired": this.dateHiredVal,
+        "workdayId": this.workdayVal,
+        "project": this.projectVal
+      });
+
+      this.router.navigate(['']);
+    }
   }
 
 }
